@@ -1,0 +1,7 @@
+<svg id="ico-inativo" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path id="Icon_map-square-rounded" data-name="Icon map-square-rounded" d="M24.72,20.72a4.012,4.012,0,0,1-4,4h-16a4.012,4.012,0,0,1-4-4v-16a4.012,4.012,0,0,1,4-4h16a4.012,4.012,0,0,1,4,4Z" transform="translate(-0.72 -0.72)" fill="#b22a2a"/>
+  <g id="Grupo_2" data-name="Grupo 2" transform="translate(94 5)">
+    <rect id="Retângulo_2" data-name="Retângulo 2" width="12" height="13" transform="translate(-88 1)" fill="#fff"/>
+    <path id="Icon_awesome-times-circle" data-name="Icon awesome-times-circle" d="M11.563.562a11,11,0,1,0,11,11A11,11,0,0,0,11.563.562ZM16.956,14.45a.533.533,0,0,1,0,.754L15.2,16.956a.533.533,0,0,1-.754,0l-2.883-2.91-2.887,2.91a.533.533,0,0,1-.754,0L6.169,15.2a.533.533,0,0,1,0-.754l2.91-2.883L6.169,8.675a.533.533,0,0,1,0-.754L7.925,6.165a.533.533,0,0,1,.754,0l2.883,2.914,2.887-2.91a.533.533,0,0,1,.754,0L16.96,7.925a.533.533,0,0,1,0,.754l-2.914,2.883Z" transform="translate(-93.563 -4.563)" fill="#b22a2a"/>
+  </g>
+</svg>
