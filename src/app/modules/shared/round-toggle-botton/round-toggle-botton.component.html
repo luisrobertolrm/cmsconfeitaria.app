@@ -1,8 +1,0 @@
-<ng-container>
-    <button  *ngIf="value" pButton type="button" pTooltip="{{toolTipOn}}" [class]="'p-button-icon-only p-button-rounded p-button-outlined ' + classOn" (click)="toggle()" [disabled]="disabled">
-        <i [class]="iconOn" *ngIf="value"></i>
-    </button>
-    <button  *ngIf="!value" pButton type="button" pTooltip="{{toolTipOff}}" [class]="'p-button-icon-only p-button-rounded p-button-outlined ' + classOff" (click)="toggle()" [disabled]="disabled">
-        <i [class]="iconOff"></i>
-    </button>
-</ng-container>

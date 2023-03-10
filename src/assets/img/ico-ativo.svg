@@ -1,7 +1,0 @@
-<svg id="ico-ativo" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-  <path id="Icon_map-square-rounded" data-name="Icon map-square-rounded" d="M24.72,20.72a4.012,4.012,0,0,1-4,4h-16a4.012,4.012,0,0,1-4-4v-16a4.012,4.012,0,0,1,4-4h16a4.012,4.012,0,0,1,4,4Z" transform="translate(-0.72 -0.72)" fill="#1c9530"/>
-  <g id="Grupo_4" data-name="Grupo 4" transform="translate(110 -68)">
-    <rect id="Retângulo_3" data-name="Retângulo 3" width="16" height="12" transform="translate(-106 74.571)" fill="#fff"/>
-    <path id="Icon_awesome-check-circle" data-name="Icon awesome-check-circle" d="M22.562,11.563a11,11,0,1,1-11-11A11,11,0,0,1,22.562,11.563ZM10.29,17.387l8.161-8.161a.71.71,0,0,0,0-1l-1-1a.71.71,0,0,0-1,0L9.788,13.874,6.681,10.767a.71.71,0,0,0-1,0l-1,1a.71.71,0,0,0,0,1l4.613,4.613A.71.71,0,0,0,10.29,17.387Z" transform="translate(-109.563 68.438)" fill="#1c9530"/>
-  </g>
-</svg>
