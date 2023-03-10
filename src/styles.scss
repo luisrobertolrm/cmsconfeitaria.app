@@ -1,0 +1,143 @@
+/* You can add global styles to this file, and also import other style files */
+
+$gutter: 1rem; //for primeflex grid system
+@import "assets/layout/styles/layout/layout.scss";
+
+/* PrimeNG */
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
+@import "../node_modules/primeicons/primeicons.css";
+
+/* Code Highlight */
+@import "../node_modules/prismjs/themes/prism-coy.css";
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #b4cacb !important;
+    border-color: #6c757d!important;
+}
+
+.btn-primary:hover {
+    background-color: #a0b3b4 !important;
+}
+
+
+.p-datatable-thead tr th{
+    background-color: #3b7b68!Important;
+    color: white!important;
+    border: #b4cacb !important;;
+}
+
+.p-sortable-column-icon{
+    color: white!important;
+}
+
+.field{
+    padding-bottom: 0px!important;
+    padding-top: 0px!important;
+    padding-left: 5px!important;
+    padding-right: 5px!important;
+}
+
+// input[type=text], select{
+//     min-height: calc(1.5em + 0.5rem + 2px)!important;
+//     padding: 0.25rem 0.5rem!important;
+//     font-size: 0.875rem!important;
+//     border-radius: 0.25rem!important;    
+// }
+
+.row-control-child{
+    padding-left: 14px;
+}
+
+
+.btn-normal {
+  width: 110px!important;
+  color:black!important;
+}
+
+fieldset {
+    margin-bottom: 1em !important;
+    border: 1.5px solid #ced4da !important;
+    border-radius: 7px;
+}
+
+legend {
+    padding: 1px 10px !important;
+    float:none;
+    width:auto;
+    font-size: 10pt!important;
+    color: #555;
+    font-weight: 600;
+}
+
+p-calendar .p-button{
+    background-color: #3a7a68!important;
+}
+
+@media (max-width: 900px) {
+    .modalPessoa{
+        width: 97%!important;;
+    }
+}
+
+@media (min-width: 901px) {
+    .modalPessoa{
+        width: 80%!important;;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .notificacao {
+        right: 10% !important;
+        top:30px;
+    }
+  }
+
+@media screen and (min-width: 600px) {
+    .notificacao {
+        right: 5% !important;
+        top:30px;
+    }
+  }
+
+.menuPrime{
+    background-color:#b4cacb;
+    border: 0px;
+}
+
+p-menuitem{
+    margin: 10px 0!important;
+  }
+
+.menuPrime {
+    padding-top: 10px!Important;
+}
+
+.colunaRegistro{
+    padding-left: 3px; 
+    padding-right: 6px; 
+    border:none; 
+    text-align:center!important;
+    display: flex !important;
+}
+
+// .form-check-input{
+//     margin-left: -5px!important;
+// }
+
+// .form-check-label{
+//     margin-left: 10px!important;
+//     padding-bottom: 8px!important;
+// }
+
+.card{
+    padding-bottom: 0px!important;
+    padding-top: 15px!important;
+    margin-bottom: 15px!important;
+}
+
+.layout-form{
+    padding-bottom: 0px!important;
+    padding-top: 0px!important;
+    margin-bottom: 0px!important;
+}

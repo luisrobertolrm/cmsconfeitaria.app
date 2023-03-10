@@ -1,0 +1,84 @@
+<p-table #dt [columns]="cols" [value]="registros" styleClass="p-datatable-sm p-datatable-striped" 
+ [responsive]="true"
+[autoLayout]="true" 
+responsiveLayout="stack" [paginator]="paginator" [rows]="10" 
+  [showCurrentPageReport]="true" 
+  currentPageReportTemplate="Mostrando {first} até {last} de {totalRecords} registros" 
+  (onRowSelect)="onRowSelect($event)"
+  [(selection)]="itemSelecionado"
+  [rowsPerPageOptions]="[10,25,50,100]" [scrollable]="true"  
+  (onLazyLoad)="handleLazyLoad($event)" [totalRecords]="totalRecords"
+  [lazy]="isLazy"
+  [lazyLoadOnInit]="false"
+  [tableStyle]="{'width': '100%'}">
+  <ng-template pTemplate="colgroup" let-columns>
+    <colgroup>
+      <col *ngFor="let col of columns">
+    </colgroup>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngIf="isSelecionar" [ngStyle]="{'flex':'0 0 4rem'}"></th>
+
+      <th *ngIf="isSelecaoMultipla" [ngStyle]="{'flex':'0 0 4rem'}">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+
+      <ng-container *ngFor="let col of columns">
+        <th *ngIf="col.sortable" [pSortableColumn]="col.field">
+          <span style="font-size:12px;">{{col.header}}</span><p-sortIcon [field]="col.field"></p-sortIcon>
+        </th>
+
+        <th *ngIf="!col.sortable" [pSortableColumn]="col.field">
+          <span style="font-size:12px;">{{col.header}}</span>
+        </th>
+      </ng-container>
+      
+      <th class="justify-content-center text-white" *ngIf="isExisteExcluir || isExisteAlterar || isExisteDetalhar">
+        <span style="font-size:12px;">Ações</span>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngIf="isSelecionar"  [ngStyle]="{'flex':'0 0 4rem'}">
+        <p-tableRadioButton [value]="rowData"></p-tableRadioButton>
+      </td>
+      <td *ngIf="isSelecaoMultipla"  [ngStyle]="{'flex':'0 0 4rem'}">
+        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+      </td>
+      <td *ngFor="let col of columns" class="colunaRegistro">
+        <span *ngIf="isDate(col)">{{getValue(rowData,col)}}</span>
+        <span *ngIf="!isDate(col)">{{getValue(rowData,col)}}</span>
+      </td>
+      <td class="d-flex flex-row gap-1 justify-content-center align-items-center" style="border:none;" *ngIf="isExisteExcluir || isExisteAlterar || isExisteDetalhar">
+        <button class="btn btn-sm btn-danger text-light" *ngIf="isExisteExcluir" (click)="handleExcluir(rowData, $event)" pTooltip="{{toolTipExcluir}}">
+          <i [class]="iconExcluir"></i>
+        </button>
+        <button class="btn btn-sm btn-secondary text-light ml-1" *ngIf="isExisteAlterar" (click)="handleAlterar(rowData)" pTooltip="{{toolTipAlterar}}">
+          <i [class]="iconAlterar"></i>
+        </button>
+        <button class="btn btn-sm btn-secondary text-light ml-1" aria-pressed="true" role="button"  *ngIf="isExisteDetalhar" (click)="handleDetalhar(rowData)" pTooltip="{{toolTipDetalhar}}">
+          <i [class]="iconDetalhar"></i>
+        </button>
+        <button class="btn btn-sm btn-secondary text-light ml-1" aria-pressed="true" role="button"  *ngIf="isExisteImprimir" (click)="handleImprimir(rowData)" pTooltip="{{toolTipImprimir}}">
+          <i [class]="iconImprimir"></i>
+        </button>
+        <button class="btn btn-sm btn-secondary text-light ml-1" aria-pressed="true" role="button"  *ngIf="isExisteAcao1" (click)="handleAcao1(rowData)" pTooltip="{{toolTipAcao1}}">
+          <i [class]="iconAcao1"></i>
+        </button>
+        <button class="btn btn-sm btn-secondary text-light ml-1" aria-pressed="true" role="button"  *ngIf="isExisteAcao2" (click)="handleAcao2(rowData)" pTooltip="{{toolTipAcao2}}">
+          <i [class]="iconAcao2"></i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+      <td [attr.colspan]="columns.length + 1" class="text-center d-flex justify-content-center">
+        <span>Nenhum resultado encontrado.</span>
+      </td>
+    </tr>
+  </ng-template>
+  
+</p-table>
