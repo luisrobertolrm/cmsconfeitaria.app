@@ -29,9 +29,6 @@ export class IngredienteAdicionarComponent implements OnInit {
   enviar() { 
     this.service.enviar(this.id,this.nome,this.dataCadastro).subscribe();
     this.alert = true;
-    console.log(this.id);
-    console.log(this.nome);
-    console.log(this.dataCadastro);
     this.onClose.emit();
   }
 
@@ -39,7 +36,6 @@ export class IngredienteAdicionarComponent implements OnInit {
     this.id = item.id;
     this.nome = item.nome;
     this.dataCadastro = item.dataCadastro;
-    console.log(item);
   }
 
   voltar(){
