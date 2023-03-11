@@ -18,11 +18,12 @@ import { DialogModule } from 'primeng/dialog';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { RoundToggleBottonComponent } from './shared/round-toggle-botton/round-toggle-botton.component';
 import { CheckboxSNComponent } from './shared/checkbox-sn/checkbox-sn.component';
-
-
+import { ConfirmationService } from "primeng/api";
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { LoginComponent } from './shared/login/login.component';
 @NgModule({
   declarations: [  
-    TableComponent, RoundToggleBottonComponent, CheckboxSNComponent
+    TableComponent, RoundToggleBottonComponent, CheckboxSNComponent, LoginComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +42,8 @@ import { CheckboxSNComponent } from './shared/checkbox-sn/checkbox-sn.component'
     SelectButtonModule,
     AccordionModule,
     DialogModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    ConfirmDialogModule
   ], exports: [
     FormsModule,
     SidebarModule,
@@ -61,7 +63,8 @@ import { CheckboxSNComponent } from './shared/checkbox-sn/checkbox-sn.component'
     DialogModule,
     ToggleButtonModule,
     RoundToggleBottonComponent,
-    CheckboxSNComponent
-  ]
+    CheckboxSNComponent,
+    ConfirmDialogModule,
+  ], providers: [ConfirmationService]
 })
 export class ComponentesModule { }

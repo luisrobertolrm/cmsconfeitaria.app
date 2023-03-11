@@ -12,10 +12,14 @@
             <div *ngIf="atrModo.invalid && alert" class="alert alert-danger alert-dismissible fade show">modo de Preparo obrigatorio</div>
         </div>
         <div class="field col-12 md:col-12">
+            <label for="Imagem">Imagem:</label>        
+            <input type="file" class="file-upload" name="Imagem" >
+        </div>
+        <div class="field col-12 md:col-12">
             <label for="dataCadastro">Data Cadastro:</label>
             <label>{{dataCadastro|date:"dd/MM/yyyy"}}</label>
         </div>
-        <div class="field col-1"><button class="btn btn-primary" (click)="enviar()">enviar</button></div>
-        <div class="field col-11"><button class="btn btn-primary" (click)="voltar()">voltar</button></div>
+        <div class="field col-1"><button class="btn btn-primary" (click)="enviar()">Salvar</button></div>
+        <div class="field col-11"><button class="btn btn-primary" (click)="voltar()">Voltar</button></div>
     </div>
 </div>
