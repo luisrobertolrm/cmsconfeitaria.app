@@ -9,7 +9,10 @@
             <label for="datacadastro">Data Cadastro:</label>
             <label>{{dataCadastro|date:"dd/MM/yyyy"}}</label>
         </div>
-        <div class="field col-1"><button class="btn btn-primary" (click)="enviar()">enviar</button></div>
-        <div class="field col-11"><button class="btn btn-primary" (click)="voltar()">voltar</button></div>     
+        <div class="col-10"></div>
+        <div class="col-2">
+            <button class="btn btn-primary" (click)="enviar()">Salvar</button>
+            <button class="btn btn-primary ml-2" (click)="voltar()">Voltar</button>
+        </div>     
     </div>
 </div>

@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { time } from 'console';
 import { IngredienteAdicionarComponent } from '../ingrediente-adicionar/ingrediente-adicionar.component';
 import { IngredienteService } from '../ingrediente.service';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-ingrediente-lista',
@@ -18,7 +19,7 @@ export class IngredienteListaComponent implements OnInit {
 
 
 
-  constructor(public service:IngredienteService, private changedetect:ChangeDetectorRef) { }
+  constructor(public service:IngredienteService, private changedetect:ChangeDetectorRef, private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.service.getLista().subscribe((itens : any[]) => {
@@ -35,9 +36,20 @@ export class IngredienteListaComponent implements OnInit {
   }
 
   excluir(item:any){
-    this.service.excluir(item.id,item.nome,item.dataCadastro).subscribe();
-    this.atualizarPagina();
-    this.changedetect.detectChanges();
+    this.confirmationService.confirm({
+      message: 'Confirma a exclusão do registro?',
+      header: 'Confirmação exclusão',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.service.excluir(item.id,item.nome,item.dataCadastro).subscribe();
+        this.atualizarPagina();
+        this.changedetect.detectChanges();
+      },
+      reject: (type: any) => {
+      },
+      key: "positionDialog"
+  });
+    
   }
 
   selecionar(item:any){

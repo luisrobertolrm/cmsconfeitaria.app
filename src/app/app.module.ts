@@ -15,6 +15,7 @@ import { NOME_TOKEN } from './modules/shared/authentication/authentication.servi
 import { JwtVM } from './modules/shared/authentication/interfaces';
 import { environment } from 'src/environments/environment';
 import localePT from '@angular/common/locales/pt';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(localePT);
 
@@ -29,6 +30,7 @@ registerLocaleData(localePT);
         AppLayoutModule, 
         DashboardModule,
         RouterModule,
+        FormsModule, ReactiveFormsModule,
         JwtModule.forRoot({
             config: {
               tokenGetter: () => {
