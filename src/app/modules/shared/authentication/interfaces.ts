@@ -4,12 +4,10 @@ export interface IUser {
     foto:string;
  }
  
- export interface JwtVM {
+ export interface AutenticacaoModelView {
     nome: string;
-    login: string;
-    foto: string;
-    menu: MenuVM[];
-    token: string;
+    hora: Date;
+    senha: string;
  }
  
  export interface MenuVM {

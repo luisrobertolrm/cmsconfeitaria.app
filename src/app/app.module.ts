@@ -12,10 +12,11 @@ import { MessageInterceptor } from './modules/shared/interceptors/message.interc
 import { LoadingInterceptor } from './modules/shared/interceptors/loading.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NOME_TOKEN } from './modules/shared/authentication/authentication.service';
-import { JwtVM } from './modules/shared/authentication/interfaces';
 import { environment } from 'src/environments/environment';
 import localePT from '@angular/common/locales/pt';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BasicAuthenticationInterceptor } from './modules/shared/interceptors/basic-authentication.interceptor';
+import { AutenticacaoModelView } from './modules/shared/authentication/interfaces';
 
 registerLocaleData(localePT);
 
@@ -31,20 +32,6 @@ registerLocaleData(localePT);
         DashboardModule,
         RouterModule,
         FormsModule, ReactiveFormsModule,
-        JwtModule.forRoot({
-            config: {
-              tokenGetter: () => {
-                var jwtInString = localStorage.getItem(NOME_TOKEN);
-
-                if(!jwtInString) return null;
-                
-                var token: JwtVM = JSON.parse(jwtInString);
-
-                return token.token;
-              },
-              allowedDomains: environment.DomininiosBearerToken,
-            }
-          })
     ],
     providers: [
       DatePipe,
@@ -60,6 +47,11 @@ registerLocaleData(localePT);
             useClass: MessageInterceptor,
             multi: true
         },
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: BasicAuthenticationInterceptor,
+          multi: true,
+       },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: LoadingInterceptor,
