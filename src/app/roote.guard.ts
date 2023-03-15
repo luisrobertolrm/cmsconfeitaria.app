@@ -14,8 +14,9 @@ export class RooteGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      
+
       return true;
+
       var autenticado = this.authService.estaAutenticado();
 
       if (!autenticado){

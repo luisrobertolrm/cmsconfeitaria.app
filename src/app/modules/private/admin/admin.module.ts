@@ -13,6 +13,7 @@ import { ReceitaingredienteListaComponent } from './receitaingrediente-lista/rec
 import { CompraListaComponent } from './compra-lista/compra-lista.component';
 import { CompraAdicionarComponent } from './compra-adicionar/compra-adicionar.component';
 import {DialogModule} from 'primeng/dialog';
+import { UsuarioAdicionarComponent } from './usuario-adicionar/usuario-adicionar.component';
 
 
 
@@ -28,6 +29,7 @@ import {DialogModule} from 'primeng/dialog';
     ReceitaingredienteListaComponent,
     CompraListaComponent,
     CompraAdicionarComponent,
+    UsuarioAdicionarComponent,
   ],
   imports: [
     CommonModule,

@@ -11,6 +11,7 @@ import { ReceitaingredienteAdicionarComponent } from './receitaingrediente-adici
 import { ReceitaingredienteListaComponent } from './receitaingrediente-lista/receitaingrediente-lista.component';
 import { CompraListaComponent } from './compra-lista/compra-lista.component';
 import { CompraAdicionarComponent } from './compra-adicionar/compra-adicionar.component';
+import { UsuarioAdicionarComponent } from './usuario-adicionar/usuario-adicionar.component';
 
 
 
@@ -28,6 +29,7 @@ import { CompraAdicionarComponent } from './compra-adicionar/compra-adicionar.co
       { path: 'receitaingrediente', component: ReceitaingredienteListaComponent},
       { path: 'compra', component: CompraListaComponent},
       { path: 'compraadicioanr', component: CompraAdicionarComponent},
+      { path: 'usuarioadicionar', component: UsuarioAdicionarComponent},
     ])
   ]
 })
