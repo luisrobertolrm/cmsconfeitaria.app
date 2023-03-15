@@ -21,9 +21,8 @@ export class RooteGuard implements CanActivate {
 
       if (!autenticado){
           this.router.navigate(['/login'])
+          return false;
           //window.location.replace(environment.urlRedirectNaoAutenticado);
-      }else{
-        this.authService.autenticarLocal();
       }
 
       

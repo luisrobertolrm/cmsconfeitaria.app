@@ -6,7 +6,6 @@ export const environment = {
   production: false,
   urlApi:'https://localhost:7250/api',
   DomininiosBearerToken: ['https://localhost:7141', 'sefsrvdsv340:8041', 'sefsrvdsv340:8042'],
-  urlRedirectNaoAutenticado: 'http://homol.receitaweb.fazenda.df.gov.br/FwkLogin.html'
 };
 
 /*
