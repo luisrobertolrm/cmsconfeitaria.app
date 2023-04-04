@@ -8,6 +8,7 @@ import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { DomSanitizer } from '@angular/platform-browser';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { FormControl } from '@angular/forms';
 
 export const NOME_TOKEN: string = 'access_token2';
 @Injectable({ providedIn: 'root' })
@@ -21,34 +22,36 @@ export class AuthenticationService {
 
     var autInString = sessionStorage.getItem(NOME_TOKEN);
 
-    if(!autInString) return false;
-
-    var token = JSON.parse(autInString);
-
-    if(!token.hora){
-      return false;
-    }
-
-    let dataExpiracao: Date = (new Date(token.hora.exp * 1000));
-    let agora:any = new Date();
-
-    if(dataExpiracao <= agora){
-      this.logout();
-      return false;
-    }
-
     return true;
+    // if(!autInString) return false;
+
+    // var token = JSON.parse(autInString);
+
+    // if(!token.hora){
+    //   return false;
+    // }
+
+    // var data = new Date(token.hora);
+
+    // // let dataExpiracao: Date = (data * 1000);
+    // let agora:any = new Date();
+
+    // if(data <= agora){
+    //   this.logout();
+    //   return false;
+    // }
+
+    // return true;
   }
 
-  autenticarRemoto(usuario:string, senha:string):Observable<any> {
+  autenticarRemoto(usuario:any, senha:any):Observable<any> {
 
-    var url = environment.urlApi + "/Autenticacao/Autenticar";
+    var url = environment.urlApi+"/Autenticacao/Autenticar";
 
     var retorno = new Observable<Boolean>((subscriber)=>{
 
       this.http.post(url, {usuario:usuario, senha: senha}).subscribe( (resp:any) => {
-
-        if(resp.hora){
+         if(resp){
 
           var autenticacaoToken = JSON.stringify(resp);
           sessionStorage.setItem(NOME_TOKEN, autenticacaoToken);
@@ -78,7 +81,7 @@ export class AuthenticationService {
   }
 
   logout() {
-    localStorage.removeItem(NOME_TOKEN);
+    sessionStorage.removeItem(NOME_TOKEN);
   }
 
   

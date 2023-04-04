@@ -14,6 +14,9 @@ import { CompraListaComponent } from './compra-lista/compra-lista.component';
 import { CompraAdicionarComponent } from './compra-adicionar/compra-adicionar.component';
 import {DialogModule} from 'primeng/dialog';
 import { UsuarioAdicionarComponent } from './usuario-adicionar/usuario-adicionar.component';
+import { RotinaDisparoComponent } from './rotina-disparo/rotina-disparo.component';
+import { TemplateEmailComponent } from './template-email/template-email.component';
+import { TemplateEmailAdicionarComponent } from './template-email-adicionar/template-email-adicionar.component';
 
 
 
@@ -30,6 +33,9 @@ import { UsuarioAdicionarComponent } from './usuario-adicionar/usuario-adicionar
     CompraListaComponent,
     CompraAdicionarComponent,
     UsuarioAdicionarComponent,
+    RotinaDisparoComponent,
+    TemplateEmailComponent,
+    TemplateEmailAdicionarComponent,
   ],
   imports: [
     CommonModule,

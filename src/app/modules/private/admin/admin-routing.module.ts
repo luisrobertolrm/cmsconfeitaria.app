@@ -12,6 +12,9 @@ import { ReceitaingredienteListaComponent } from './receitaingrediente-lista/rec
 import { CompraListaComponent } from './compra-lista/compra-lista.component';
 import { CompraAdicionarComponent } from './compra-adicionar/compra-adicionar.component';
 import { UsuarioAdicionarComponent } from './usuario-adicionar/usuario-adicionar.component';
+import { RotinaDisparoComponent } from './rotina-disparo/rotina-disparo.component';
+import { TemplateEmailComponent } from './template-email/template-email.component';
+import { TemplateEmailAdicionarComponent } from './template-email-adicionar/template-email-adicionar.component';
 
 
 
@@ -30,6 +33,9 @@ import { UsuarioAdicionarComponent } from './usuario-adicionar/usuario-adicionar
       { path: 'compra', component: CompraListaComponent},
       { path: 'compraadicioanr', component: CompraAdicionarComponent},
       { path: 'usuarioadicionar', component: UsuarioAdicionarComponent},
+      { path: 'rotinaDisparo', component: RotinaDisparoComponent},
+      { path : 'templateLista', component: TemplateEmailComponent},
+      { path : 'templateAdicionar',  component: TemplateEmailAdicionarComponent}
     ])
   ]
 })
