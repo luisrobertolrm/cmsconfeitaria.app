@@ -21,12 +21,13 @@ export class UsuarioAdicionarComponent implements OnInit {
   Usuario = this.fb.group({
     Nome:this.fb.control<string>("",{validators:[Validators.required]}),
     LoginNome:this.fb.control<string>("",{validators:[Validators.required]}),
-    Senha:this.fb.control<string>("",{validators:[Validators.required]})
+    Senha:this.fb.control<string>("",{validators:[Validators.required]}),
+    Email:this.fb.control<string>("",{validators:[Validators.required]})
   })
 
   public enviar(){
     if(this.Usuario.valid){
-      this.service.enviar(this.id,this.Usuario.controls.Nome.value,this.Usuario.controls.LoginNome.value,this.Usuario.controls.Senha.value).subscribe(( response: any) => { 
+      this.service.enviar(this.id,this.Usuario.controls.Nome.value,this.Usuario.controls.LoginNome.value,this.Usuario.controls.Senha.value,this.Usuario.controls.Email.value).subscribe(( response: any) => { 
       } );
     }
   }

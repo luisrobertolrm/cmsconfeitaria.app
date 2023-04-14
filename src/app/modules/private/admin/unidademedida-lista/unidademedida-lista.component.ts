@@ -40,7 +40,6 @@ export class UnidademedidalistaComponent implements OnInit {
   novo(){
     this.cadastroVisivel= true;
     this.changedetect.detectChanges();
-    this.unidadeAdicionarComponent.novo();
   }
 
   excluir(item : any){

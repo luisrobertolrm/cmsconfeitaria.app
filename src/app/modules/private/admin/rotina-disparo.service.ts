@@ -22,4 +22,10 @@ export class RotinaDisparoService {
 
       return this.http.post(url,props)
   }
+
+  public obterLista():any {
+    var url = environment.urlApi+'/RotinaDisparo/obterRotinas';
+
+    return this.http.get(url);
+  }
 }

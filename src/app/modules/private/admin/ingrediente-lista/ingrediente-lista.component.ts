@@ -61,7 +61,6 @@ export class IngredienteListaComponent implements OnInit {
   novoCadastro(){
     this.cadastroVisivel=true;
     this.changedetect.detectChanges();
-    this.ingredienteAdicionarComponent.novo();
   }
 
   fechar(){

@@ -48,7 +48,6 @@ export class CompraListaComponent implements OnInit {
   novoCadastro(){
     this.cadastroVisivel=true;
     this.changeDetected.detectChanges();
-    this.compraAdicionarComponent.novo();
   }
 
   fechar(){

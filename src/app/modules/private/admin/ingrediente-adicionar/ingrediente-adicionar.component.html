@@ -1,9 +1,8 @@
 <div class="card pt-3">
     <div class="grid p-fluid mt-0">
-        <div class="field col-12 md:col-12">
+        <div class="field col-12 md:col-12" [formGroup]="formGroup">
             <label for="Nome">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" [(ngModel)]="nome" #atr="ngModel" required />
-            <div class="alert alert-danger alert-dismissible fade show" *ngIf="atr.invalid && alert">Nome obrigatorio</div>
+            <input type="text" class="form-control" name="nome" id="nome" formControlName="nome" required />
         </div>
         <div class="field col-12 md:col-12">
             <label for="datacadastro">Data Cadastro:</label>

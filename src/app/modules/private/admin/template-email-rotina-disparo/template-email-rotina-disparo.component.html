@@ -1,0 +1,38 @@
+<div class="card pt-3">
+    <div class="grid p-fluid mt-0" [formGroup]="formGroup">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <label for="rotinaDisparoId">Escolha um template:</label>
+            <table class="table table-striped">
+                <thead >
+                    <th></th>
+                    <th>Nome</th>
+                    <th>Titulo</th>
+                    <th>Conteudo</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let templateEmail of templateEmails">
+                        <td><input type="checkbox" (change)="selecionarTemplate($event,templateEmail)" formControlName="templateEmailId" value="{{templateEmail.id}}"></td>
+                        <td>{{templateEmail.nome}}</td>
+                        <td>{{templateEmail.titulo}}</td>
+                        <td>{{templateEmail.conteudo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-8">
+            <label for="rotinaDisparo.id">Escolha uma rotina:</label>
+            <select formControlName="rotinaDisparoId" class="form-control">
+                <option *ngFor="let rotinaDisparo of rotinaDisparos" value="{{rotinaDisparo.id}}">{{rotinaDisparo.nome}}</option>
+            </select>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-8">
+            <button class="btn btn-primary"  (click)="Enviar()">Salvar</button>
+        </div>
+        
+    </div>
+</div>

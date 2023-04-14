@@ -26,10 +26,10 @@ export class RotinaDisparoComponent implements OnInit {
 
   ngOnInit(): void {
     this.tiposIntervalos = [
-      {nome : 'diario', valor : 1},
-      {nome : 'semanal', valor : 2},
-      {nome : 'mensal', valor : 3},
-      {nome : 'hora a hora', valor : 4},
+      {nome : 'Diario', valor : 1},
+      {nome : 'Semanal', valor : 2},
+      {nome : 'Mensal', valor : 3},
+      {nome : 'Hora a hora', valor : 4},
     ]
 
     this.dataCadastro = this.RotinaDisparo.controls.dataCadastro.value?.getDate();
@@ -45,7 +45,7 @@ export class RotinaDisparoComponent implements OnInit {
 
   public Enviar(){
     this.service.Enviar(this.RotinaDisparo.controls.id.value,this.RotinaDisparo.controls.nome.value,this.RotinaDisparo.controls.intervalo.value,this.RotinaDisparo.controls.tipoIntervalo.value,this.RotinaDisparo.controls.dataCadastro.value)
-    .subscribe((reponse : any) => {} );
+    .subscribe((response : any) => {} );
   }
 
 }

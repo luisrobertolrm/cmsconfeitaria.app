@@ -4,6 +4,8 @@ import { runInThisContext } from 'vm';
 import { CompraService } from '../compra.service';
 import { IngredienteService } from '../ingrediente.service';
 import { UnidademedidaService } from '../unidademedida.service';
+import { FormBuilder } from '@angular/forms';
+import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-compra-adicionar',
@@ -12,21 +14,23 @@ import { UnidademedidaService } from '../unidademedida.service';
 })
 export class CompraAdicionarComponent implements OnInit {
 
-  id=0;
-  unidadeMedidaId:number|null=null;
-  ingredienteId:number|null=null;
-  quantidade:number|null=null;
-  valor:number|null=null;
-  dataCompra:Date|null=null;
+ formGroup = this.fb.group({
+  id : this.fb.control<number>(0),
+  ingredienteId : this.fb.control<number>(0),
+  unidadeMedidaId : this.fb.control<number>(0),
+  quantidade : this.fb.control<number>(0),
+  dataCompra : this.fb.control<Date>(new Date()),
+  valor : this.fb.control<number>(0),
+ })
 
+  dataCompra! : any;
   unidadeMedidas = [] as any[];
   ingredientes = [] as any[];
-
-  constructor(public service:CompraService,public unidadeService:UnidademedidaService,public ingredienteService:IngredienteService) { }
 
   @Output()
   onClose=new EventEmitter();
 
+  constructor(public service:CompraService,public unidadeService:UnidademedidaService,public ingredienteService:IngredienteService,private fb:FormBuilder) { }
   
   ngOnInit(): void {
     this.unidadeService.getLista().subscribe((item : any) =>{
@@ -36,34 +40,28 @@ export class CompraAdicionarComponent implements OnInit {
     this.ingredienteService.getLista().subscribe((item : any )=>{
       this.ingredientes = item;
     })
+
+    this.dataCompra = this.formGroup.controls.dataCompra.value?.getDate();
   }
 
-  adicionar(){
-    this.service.enviar(this.id,this.ingredienteId,this.unidadeMedidaId,this.quantidade,this.dataCompra,this.valor).subscribe();
-    console.log(this.id);
-    console.log(this.ingredienteId);
-    console.log(this.unidadeMedidaId);
-    console.log(this.quantidade);
-    console.log(this.dataCompra);
-    console.log(this.valor);
-    this.onClose.emit();
+  enviar(){
+    this.service.enviar(this.formGroup.controls.id.value,this.formGroup.controls.ingredienteId.value,this.formGroup.controls.unidadeMedidaId.value,this.formGroup.controls.quantidade.value,this.formGroup.controls.dataCompra.value,this.formGroup.controls.valor.value).subscribe((response : any) =>{
+      this.onClose.emit();
+    });
   }
 
-  novo(){
-    this.dataCompra = new Date();
-  }
 
   atualizar(item : any){
-    this.id = item.id;
-    this.ingredienteId = item.ingredienteId;
-    this.unidadeMedidaId = item.unidadeMedidaId;
-    this.quantidade = item.quantidade;
-    this.dataCompra = item.dataCompra;
-    this.valor = item.valor;
-    console.log(item);
+    this.formGroup.controls.id.setValue(item.id);
+    this.formGroup.controls.id.setValue(item.ingredienteId);
+    this.formGroup.controls.id.setValue(item.unidadeMedidaId);
+    this.formGroup.controls.id.setValue(item.quantidade);
+    this.formGroup.controls.id.setValue(item.dataCompra);
+    this.formGroup.controls.id.setValue(item.valor);
+    this.dataCompra = this.formGroup.controls.dataCompra.value;
   }
   
-  fechar(){
+  voltar(){
     this.onClose.emit();
   }
 

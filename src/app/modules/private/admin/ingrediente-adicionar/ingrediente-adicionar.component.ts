@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IngredienteService } from '../ingrediente.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-ingrediente-adicionar',
@@ -8,34 +9,35 @@ import { IngredienteService } from '../ingrediente.service';
 })
 export class IngredienteAdicionarComponent implements OnInit {
 
-  alert = false;
+  formGroup = this.fb.group({
+    id : this.fb.control<number>(0),
+    nome : this.fb.control<string>(""),
+    dataCadastro : this.fb.control<Date>(new Date())
+  })
 
-  id=0;
-  nome:string|null=null;
-  dataCadastro:Date|null=null;
-
-  constructor(private service:IngredienteService) { }
+  dataCadastro! : any;
 
   @Output()
   onClose= new EventEmitter();
 
+  constructor(private service:IngredienteService,private  fb: FormBuilder) { }
+
   ngOnInit(): void {
+    this.dataCadastro = this.formGroup.controls.dataCadastro.value?.getDate();
   }
 
-  novo(){
-    this.dataCadastro = new Date();
-  }
 
   enviar() { 
-    this.service.enviar(this.id,this.nome,this.dataCadastro).subscribe();
-    this.alert = true;
-    this.onClose.emit();
+    this.service.enviar(this.formGroup.controls.id.value,this.formGroup.controls.nome.value,this.formGroup.controls.dataCadastro.value).subscribe((responde : any ) =>{
+      this.onClose.emit();
+    });
   }
 
   atualizar(item:any){
-    this.id = item.id;
-    this.nome = item.nome;
-    this.dataCadastro = item.dataCadastro;
+    this.formGroup.controls.id.setValue(item.id),
+    this.formGroup.controls.nome.setValue(item.nome),
+    this.formGroup.controls.dataCadastro.setValue(item.dataCadastro)
+    this.dataCadastro = this.formGroup.controls.dataCadastro.value?.getDate();
   }
 
   voltar(){

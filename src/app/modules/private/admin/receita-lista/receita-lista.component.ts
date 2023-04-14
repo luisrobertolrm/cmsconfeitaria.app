@@ -51,7 +51,6 @@ export class ReceitaListaComponent implements OnInit {
     this.tabelaView=false;
     this.receitaIngredienteCadastro=false;
     this.changedetect.detectChanges();
-    this.receitaComponente.novo();
   }
 
   novoIngrediente(receita : any){
@@ -60,12 +59,11 @@ export class ReceitaListaComponent implements OnInit {
     this.receitaIngredienteCadastro=true;
     this.changedetect.detectChanges();
     this.receitaIngredienteAdicionarComponente.receitaId = receita.id;
-    this.receitaIngredienteAdicionarComponente.iniciar(receita);
     this.receitaIngredienteListaComponente.iniciar(receita);
     console.log(receita);
   }
 
-  selecionar(item : any) {
+  atualizar(item : any) {
       this.cadastroReceitaVisivel=true;
       this.tabelaView=false;
       this.receitaIngredienteCadastro=false;

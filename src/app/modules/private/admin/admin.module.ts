@@ -17,6 +17,7 @@ import { UsuarioAdicionarComponent } from './usuario-adicionar/usuario-adicionar
 import { RotinaDisparoComponent } from './rotina-disparo/rotina-disparo.component';
 import { TemplateEmailComponent } from './template-email/template-email.component';
 import { TemplateEmailAdicionarComponent } from './template-email-adicionar/template-email-adicionar.component';
+import { TemplateEmailRotinaDisparoComponent } from './template-email-rotina-disparo/template-email-rotina-disparo.component';
 
 
 
@@ -36,6 +37,7 @@ import { TemplateEmailAdicionarComponent } from './template-email-adicionar/temp
     RotinaDisparoComponent,
     TemplateEmailComponent,
     TemplateEmailAdicionarComponent,
+    TemplateEmailRotinaDisparoComponent,
   ],
   imports: [
     CommonModule,

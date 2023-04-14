@@ -10,14 +10,15 @@ export class UsuarioService {
 
   constructor(private http:HttpClient) { }
 
-  public  enviar(Id : number ,Nome : any ,LoginNome : any , Senha : any ): any {
+  public  enviar(Id : number ,Nome : any ,LoginNome : any , Senha : any ,Email : any): any {
     var url = environment.urlApi+'/Usuario/AdicionarUsuario';
 
     var props = {
       "Id" : Id,
       "Nome" : Nome,
       "LoginNome" : LoginNome,
-      "Senha" : Senha
+      "Senha" : Senha,
+      "Email" : Email
     };
      
     return this.http.post(url,props);

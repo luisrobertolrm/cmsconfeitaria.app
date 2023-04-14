@@ -14,7 +14,7 @@ export class UnidademedidaService {
       return this.http.get(url);
   }
 
-  public enviar(nome: string | null, sigla: string | null, id: number, dataCadastro : Date|null):any {
+  public enviar(nome: string | null, sigla: string | null, id: number|null, dataCadastro : Date|null):any {
     var url = environment.urlApi+'/UnidadeMedida/AdicionarUnidadeMedida';
     
     var props = {
