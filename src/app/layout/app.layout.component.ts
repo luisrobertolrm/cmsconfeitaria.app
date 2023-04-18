@@ -93,10 +93,7 @@ export class AppLayoutComponent implements OnDestroy, OnInit {
             }
         });
 
-        this.authenticationService.menuObservable.subscribe((menu: MenuItem[]) => {
-            this.menus = menu;
-        });
-
+       
         this.router.events.pipe(filter(event => event instanceof NavigationEnd))
         .subscribe((evt:any) => {
             this.hideMenu();

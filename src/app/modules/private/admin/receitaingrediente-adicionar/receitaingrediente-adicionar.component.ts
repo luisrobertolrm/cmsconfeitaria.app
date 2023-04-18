@@ -57,9 +57,7 @@ export class ReceitaingredienteAdicionarComponent implements OnInit {
     this.dataCadastro = new Date();
   }
 
-  iniciar(receita : any){
-    this.receitaItem = receita;
-  }
+
 
   enviar(){
       this.service.enviar(this.id,this.unidadeMedidaId,this.receitaId,this.ingredienteId,this.quantidade,this.dataCadastro).subscribe();

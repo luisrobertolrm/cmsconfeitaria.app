@@ -1,16 +1,14 @@
 <p>unidademedida-adicionar works!</p>
 
 <div class="card pt-3">
-    <div class="grid p-fluid mt-0">
+    <div class="grid p-fluid mt-0" [formGroup]="formGroup">
             <div class="field col-12 md:col-12">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" name="nome" id="nome" [(ngModel)]="nome" #atrNome="ngModel" required/>
-                <div class="alert alert-danger" *ngIf="atrNome.invalid && alert">Nome obrigatorio</div>
+                <input type="text" class="form-control" name="nome" id="nome" formControlName="nome"  required/>                
             </div>
             <div class="field col-12 md:col-12">
                 <label for="Sigla">Sigla</label>
-                <input type="text" class="form-control" name="sigla" id="sigla" [(ngModel)]="sigla" #atrSigla="ngModel" required/>
-                <div class="alert alert-danger" *ngIf="atrSigla.invalid && alert">sigla obrigatoria</div>
+                <input type="text" class="form-control" name="sigla" id="sigla" formControlName="sigla" required/>                
             </div>
             <div class="field col-12 md:col-12">
                 <label for="nome">Data Cadastro</label>

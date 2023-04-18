@@ -14,14 +14,14 @@ export class PrivateGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      return true;
       
        var autenticado = this.authService.estaAutenticado();
 
       if (!autenticado){
-         this.router.navigate(['/']);
+         this.router.navigate(['/login']);
       }
 
+      return autenticado;
     
   }
   

@@ -15,21 +15,20 @@ export class RooteGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      return true;
-      
+
+
       var autenticado = this.authService.estaAutenticado();
 
       if (!autenticado){
-        this.authService.autenticarRemoto().subscribe(resp=>{
-          if(resp == false) window.location.replace(environment.urlRedirectNaoAutenticado);
-        });
-      }else{
-        this.authService.autenticarLocal();
+          this.router.navigate(['/login'])
+          return false;
+          //window.location.replace(environment.urlRedirectNaoAutenticado);
       }
-
+      else
+      return true;
       
-
-    return true;
   }
+      //this.authService.autenticarRemoto().subscribe(resp=>{
+    
   
 }

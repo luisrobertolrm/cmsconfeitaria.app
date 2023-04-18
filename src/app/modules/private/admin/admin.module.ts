@@ -13,6 +13,11 @@ import { ReceitaingredienteListaComponent } from './receitaingrediente-lista/rec
 import { CompraListaComponent } from './compra-lista/compra-lista.component';
 import { CompraAdicionarComponent } from './compra-adicionar/compra-adicionar.component';
 import {DialogModule} from 'primeng/dialog';
+import { UsuarioAdicionarComponent } from './usuario-adicionar/usuario-adicionar.component';
+import { RotinaDisparoComponent } from './rotina-disparo/rotina-disparo.component';
+import { TemplateEmailComponent } from './template-email/template-email.component';
+import { TemplateEmailAdicionarComponent } from './template-email-adicionar/template-email-adicionar.component';
+import { TemplateEmailRotinaDisparoComponent } from './template-email-rotina-disparo/template-email-rotina-disparo.component';
 
 
 
@@ -28,6 +33,11 @@ import {DialogModule} from 'primeng/dialog';
     ReceitaingredienteListaComponent,
     CompraListaComponent,
     CompraAdicionarComponent,
+    UsuarioAdicionarComponent,
+    RotinaDisparoComponent,
+    TemplateEmailComponent,
+    TemplateEmailAdicionarComponent,
+    TemplateEmailRotinaDisparoComponent,
   ],
   imports: [
     CommonModule,

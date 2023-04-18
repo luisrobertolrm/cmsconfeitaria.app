@@ -21,7 +21,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 if (err.status == 401) {
                     this.authService.logout();
                     window.setTimeout(()=>{
-                        window.location.replace(environment.urlRedirectNaoAutenticado);
+                        //window.location.replace(environment.urlRedirectNaoAutenticado);
                     }, 3000);
                 }
 

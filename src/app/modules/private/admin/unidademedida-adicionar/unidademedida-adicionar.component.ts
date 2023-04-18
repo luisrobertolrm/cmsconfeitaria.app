@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UnidademedidaService } from '../unidademedida.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-unidademedida-adicionar',
@@ -8,40 +9,37 @@ import { UnidademedidaService } from '../unidademedida.service';
 })
 export class UnidademedidaAdicionarComponent implements OnInit {
 
-  alert=false;
 
-  id=0;
-  nome:string|null = null;
-  sigla:string|null = null;
-  dataCadastro:Date|null = null;
+  constructor(private service:UnidademedidaService, private fb: FormBuilder ) { }
 
-  constructor(private service:UnidademedidaService ) { }
+  formGroup = this.fb.group({
+    id : this.fb.control<number>(0),
+    nome : this.fb.control<string>(""),
+    sigla : this.fb.control<string>(""),
+    dataCadastro : this.fb.control<Date>(new Date())
+  })
+
+  dataCadastro! : any;
 
   @Output()
   onClose = new EventEmitter();
 
   ngOnInit(): void {
+    this.dataCadastro = this.formGroup.controls.dataCadastro.value?.getDate()
   }
 
-  novo(){
-    this.dataCadastro = new Date ();
-  }
 
   enviar() {
-    this.service.enviar(this.nome,this.sigla,this.id,this.dataCadastro).subscribe();
-    this.alert = true;
-    console.log(this.nome);
-    console.log(this.sigla);
-    console.log(this.dataCadastro);      
+    this.service.enviar(this.formGroup.controls.nome.value,this.formGroup.controls.sigla.value,this.formGroup.controls.id.value,this.formGroup.controls.dataCadastro.value).subscribe();      
     this.onClose.emit();
   }
 
-  atualizar(item:any){
-    this.nome= item.nome;
-    this.sigla= item.sigla;
-    this.dataCadastro= item.dataCadastro;
-    this.id= item.id;
-    console.log(item);
+  atualizar(item:any){67
+    this.formGroup.controls.id.setValue(item.id);
+    this.formGroup.controls.nome.setValue(item.nome);
+    this.formGroup.controls.dataCadastro.setValue(item.dataCadastro);
+    this.formGroup.controls.id.setValue(item.id);
+    this.onClose.emit();
   }
 
   voltar(){
